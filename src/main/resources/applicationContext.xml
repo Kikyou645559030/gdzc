@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+      	http://www.springframework.org/schema/task  http://www.springframework.org/schema/task/spring-task-3.1.xsd"
+       default-lazy-init="false">
+
+    <description>Spring公共配置</description>
+
+    <!-- 使用annotation 自动注册bean, 并保证@Required、@Autowired的属性被注入 -->
+    <context:component-scan base-package="com.gdzc.*">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--Jpa Entity Manager 配置-->
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="packagesToScan" value="com.gdzc" />
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" >
+                <property name="databasePlatform" value="${jdbc.sql.dialect}" />
+            </bean>
+        </property>
+        <property name="jpaProperties">
+            <props>
+                <prop key="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</prop>
+                <prop key="net.sf.ehcache.configurationResourceName">ehcache/ehcache-hibernate-local.xml</prop>
+                <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
+            </props>
+        </property>
+    </bean>
+
+    <jpa:repositories base-package="com.gdzc" transaction-manager-ref="transactionManager"
+        entity-manager-factory-ref="entityManagerFactory" factory-class="com.gdzc.commons.orm.LzcRepositoryFactoryBean" />
+
+    <!--Jpa 事务配置-->
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory" />
+    </bean>
+
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="104857600" />
+        <property name="minUploadSize" value="4096" />
+    </bean>-->
+
+    <!--使用annotation定义事务-->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
+
+    <!--localhost配置-->
+    <beans profile="localhost">
+        <context:property-placeholder ignore-unresolvable="true" location="classpath*:application.properties,classpath*:application.localhost.properties" />
+
+        <!--数据源配置,使用DBCP数据库连接池-->
+        <bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+            <!--连接信息-->
+            <property name="driverClassName" value="${jdbc.driver}" />
+            <property name="url" value="${jdbc.url}" />
+            <property name="username" value="${jdbc.username}" />
+            <property name="password" value="${jdbc.password}" />
+            <!--连接池信息-->
+            <!--maxActive: 最大连接数量-->
+            <property name="maxActive" value="${dbcp.maxActive}" />
+            <!--minIdle: 最小空闲连接-->
+            <!--maxIdle: 最大空闲连接-->
+            <property name="maxIdle" value="${dbcp.maxIdle}" />
+            <!--initialSize: 初始化连接-->
+            <property name="initialSize" value="${dbcp.initialSize}"/>
+            <!--<property name="defaultAutoCommit" value="false" />-->
+            <!-- 连接被泄露时是否打印 -->
+            <property name="logAbandoned" value="${dbcp.logAbandoned}"/>
+            <!--removeAbandoned: 是否自动回收超时连接-->
+            <property name="removeAbandoned"  value="${dbcp.removeAbandoned}"/>
+            <!--removeAbandonedTimeout: 超时时间(以秒数为单位)-->
+            <property name="removeAbandonedTimeout" value="${dbcp.removeAbandonedTimeout}"/>
+            <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->
+            <property name="maxWait" value="${dbcp.maxWait}"/>
+            <!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->
+            <property name="timeBetweenEvictionRunsMillis" value="${dbcp.timeBetweenEvictionRunsMillis}"/>
+            <!--  在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->
+            <property name="numTestsPerEvictionRun" value="${dbcp.numTestsPerEvictionRun}"/>
+            <!-- 1000 * 60 * 30  连接在池中保持空闲而不被空闲连接回收器线程-->
+            <property name="minEvictableIdleTimeMillis" value="${dbcp.minEvictableIdleTimeMillis}"/>
+            <property name="validationQuery" value="SELECT NOW() FROM DUAL"/>
+        </bean>
+    </beans>
+
+    <!-- production环境 -->
+    <beans profile="production">
+        <context:property-placeholder
+                ignore-unresolvable="true" location="classpath*:/application.properties" />
+
+        <!-- 数据源配置, 使用DBCP数据库连接池 -->
+        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+              destroy-method="close">
+            <!-- Connection Info -->
+            <property name="driverClassName" value="${jdbc.driver}" />
+            <property name="url" value="${jdbc.url}" />
+            <property name="username" value="${jdbc.username}" />
+            <property name="password" value="${jdbc.password}" />
+
+            <!-- Connection Pooling Info -->
+            <property name="maxActive" value="${dbcp.maxActive}" />
+            <property name="maxIdle" value="${dbcp.maxIdle}" />
+            <property name="defaultAutoCommit" value="false" />
+            <!-- 连接Idle一个小时后超时 -->
+            <property name="timeBetweenEvictionRunsMillis" value="3600000" />
+            <property name="minEvictableIdleTimeMillis" value="3600000" />
+        </bean>
+    </beans>
+</beans>
