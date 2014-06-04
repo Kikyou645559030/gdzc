@@ -25,4 +25,12 @@ public class Animal {
 
     public void eat(Integer age){
     }
+
+    public String toString(){
+        return "呵呵";
+    }
+
+    public boolean equals(Object obj){
+        return true;
+    }
 }
