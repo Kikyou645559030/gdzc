@@ -1,4 +1,4 @@
-package com.gdzc.commons.orm.entity;
+package com.gdzc.commons.entity;
 
 import org.hibernate.annotations.GenericGenerator;
 

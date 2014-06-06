@@ -1,6 +1,6 @@
 package com.gdzc.user.entity;
 
-import com.gdzc.commons.orm.entity.IdEntity;
+import com.gdzc.commons.entity.IdEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;

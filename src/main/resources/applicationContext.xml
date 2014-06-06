@@ -32,6 +32,7 @@
                 <prop key="net.sf.ehcache.configurationResourceName">ehcache/ehcache-hibernate-local.xml</prop>
                 <prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="show_sql">true</prop>
             </props>
         </property>
     </bean>
@@ -53,64 +54,60 @@
     <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true" />
 
     <!--localhost配置-->
-    <beans profile="localhost">
-        <context:property-placeholder ignore-unresolvable="true" location="classpath*:application.properties,classpath*:application.localhost.properties" />
+    <context:property-placeholder ignore-unresolvable="true" location="classpath*:application.localhost.properties" />
 
-        <!--数据源配置,使用DBCP数据库连接池-->
-        <bean id="dataSourceSpied" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-            <!--连接信息-->
-            <property name="driverClassName" value="${jdbc.driver}" />
-            <property name="url" value="${jdbc.url}" />
-            <property name="username" value="${jdbc.username}" />
-            <property name="password" value="${jdbc.password}" />
-            <!--连接池信息-->
-            <!--maxActive: 最大连接数量-->
-            <property name="maxActive" value="${dbcp.maxActive}" />
-            <!--minIdle: 最小空闲连接-->
-            <!--maxIdle: 最大空闲连接-->
-            <property name="maxIdle" value="${dbcp.maxIdle}" />
-            <!--initialSize: 初始化连接-->
-            <property name="initialSize" value="${dbcp.initialSize}"/>
-            <!--<property name="defaultAutoCommit" value="false" />-->
-            <!-- 连接被泄露时是否打印 -->
-            <property name="logAbandoned" value="${dbcp.logAbandoned}"/>
-            <!--removeAbandoned: 是否自动回收超时连接-->
-            <property name="removeAbandoned"  value="${dbcp.removeAbandoned}"/>
-            <!--removeAbandonedTimeout: 超时时间(以秒数为单位)-->
-            <property name="removeAbandonedTimeout" value="${dbcp.removeAbandonedTimeout}"/>
-            <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->
-            <property name="maxWait" value="${dbcp.maxWait}"/>
-            <!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->
-            <property name="timeBetweenEvictionRunsMillis" value="${dbcp.timeBetweenEvictionRunsMillis}"/>
-            <!--  在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->
-            <property name="numTestsPerEvictionRun" value="${dbcp.numTestsPerEvictionRun}"/>
-            <!-- 1000 * 60 * 30  连接在池中保持空闲而不被空闲连接回收器线程-->
-            <property name="minEvictableIdleTimeMillis" value="${dbcp.minEvictableIdleTimeMillis}"/>
-            <property name="validationQuery" value="SELECT NOW() FROM DUAL"/>
-        </bean>
-    </beans>
+    <!--数据源配置,使用DBCP数据库连接池-->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <!--连接信息-->
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <!--连接池信息-->
+        <!--maxActive: 最大连接数量-->
+        <property name="maxActive" value="${dbcp.maxActive}" />
+        <!--minIdle: 最小空闲连接-->
+        <!--maxIdle: 最大空闲连接-->
+        <property name="maxIdle" value="${dbcp.maxIdle}" />
+        <!--initialSize: 初始化连接-->
+        <property name="initialSize" value="${dbcp.initialSize}"/>
+        <!--<property name="defaultAutoCommit" value="false" />-->
+        <!-- 连接被泄露时是否打印 -->
+        <property name="logAbandoned" value="${dbcp.logAbandoned}"/>
+        <!--removeAbandoned: 是否自动回收超时连接-->
+        <property name="removeAbandoned"  value="${dbcp.removeAbandoned}"/>
+        <!--removeAbandonedTimeout: 超时时间(以秒数为单位)-->
+        <property name="removeAbandonedTimeout" value="${dbcp.removeAbandonedTimeout}"/>
+        <!--maxWait: 超时等待时间以毫秒为单位 1000等于60秒-->
+        <property name="maxWait" value="${dbcp.maxWait}"/>
+        <!-- 在空闲连接回收器线程运行期间休眠的时间值,以毫秒为单位. -->
+        <property name="timeBetweenEvictionRunsMillis" value="${dbcp.timeBetweenEvictionRunsMillis}"/>
+        <!--  在每次空闲连接回收器线程(如果有)运行时检查的连接数量 -->
+        <property name="numTestsPerEvictionRun" value="${dbcp.numTestsPerEvictionRun}"/>
+        <!-- 1000 * 60 * 30  连接在池中保持空闲而不被空闲连接回收器线程-->
+        <property name="minEvictableIdleTimeMillis" value="${dbcp.minEvictableIdleTimeMillis}"/>
+        <property name="validationQuery" value="SELECT NOW() FROM DUAL"/>
+    </bean>
 
     <!-- production环境 -->
-    <beans profile="production">
-        <context:property-placeholder
-                ignore-unresolvable="true" location="classpath*:/application.properties" />
+    <context:property-placeholder
+            ignore-unresolvable="true" location="classpath*:/application.properties" />
 
-        <!-- 数据源配置, 使用DBCP数据库连接池 -->
-        <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-              destroy-method="close">
-            <!-- Connection Info -->
-            <property name="driverClassName" value="${jdbc.driver}" />
-            <property name="url" value="${jdbc.url}" />
-            <property name="username" value="${jdbc.username}" />
-            <property name="password" value="${jdbc.password}" />
+    <!-- 数据源配置, 使用DBCP数据库连接池 -->
+    <bean id="dataSourceDefault" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <!-- Connection Info -->
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
 
-            <!-- Connection Pooling Info -->
-            <property name="maxActive" value="${dbcp.maxActive}" />
-            <property name="maxIdle" value="${dbcp.maxIdle}" />
-            <property name="defaultAutoCommit" value="false" />
-            <!-- 连接Idle一个小时后超时 -->
-            <property name="timeBetweenEvictionRunsMillis" value="3600000" />
-            <property name="minEvictableIdleTimeMillis" value="3600000" />
-        </bean>
-    </beans>
+        <!-- Connection Pooling Info -->
+        <property name="maxActive" value="${dbcp.maxActive}" />
+        <property name="maxIdle" value="${dbcp.maxIdle}" />
+        <property name="defaultAutoCommit" value="false" />
+        <!-- 连接Idle一个小时后超时 -->
+        <property name="timeBetweenEvictionRunsMillis" value="3600000" />
+        <property name="minEvictableIdleTimeMillis" value="3600000" />
+    </bean>
 </beans>
