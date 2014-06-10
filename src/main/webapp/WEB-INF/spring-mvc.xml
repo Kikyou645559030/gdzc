@@ -29,7 +29,7 @@
 
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <property name="ignoreAcceptHeader" value="true" />
-        <property name="defaultContentType" value="TEXT_HTML" />
+        <property name="defaultContentType" value="text/html" />
         <property name="mediaTypes">
             <map>
                 <entry key="html" value="text/html" />

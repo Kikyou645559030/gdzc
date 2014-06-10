@@ -11,9 +11,9 @@ import java.util.Date;
 @MappedSuperclass
 @Access(AccessType.PROPERTY)
 public class IdEntity {
-    protected String id;
-    protected Date creatTime = new Date();
-    protected Date updateTime;
+    protected String id;//主键
+    protected Date createTime = new Date();//创建时间
+    protected Date updateTime;//修改时间
 
     @Id
     @GeneratedValue(generator="system-uuid")
@@ -27,12 +27,12 @@ public class IdEntity {
     }
 
     @Column(updatable=false)
-    public Date getCreatTime() {
-        return creatTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setCreatTime(Date creatTime) {
-        this.creatTime = creatTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getUpdateTime() {

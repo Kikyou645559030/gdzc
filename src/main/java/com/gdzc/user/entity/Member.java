@@ -1,11 +1,13 @@
 package com.gdzc.user.entity;
 
 import com.gdzc.commons.entity.IdEntity;
+import com.gdzc.utils.ParameterUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
+ * 创建实体的时候注意不要使用数据库的关键字
  * Created by Liu_Zhichao on 14-6-5.
  */
 @Entity
@@ -26,8 +28,16 @@ public class Member extends IdEntity {
     private Integer IDCard;//身份证号
     private String country;//国家
     private String type;//用户类别
-    private String state = "YES";//是否启用,YES-启用,NO-不启用
-    private String condition;//状态
+    private String state = ParameterUtils.YES;//是否启用,YES-启用,NO-不启用
+    private String enable;//状态
+
+    public String getEnable() {
+        return enable;
+    }
+
+    public void setEnable(String enable) {
+        this.enable = enable;
+    }
 
     public String getLoginName() {
         return loginName;
@@ -59,14 +69,6 @@ public class Member extends IdEntity {
 
     public void setState(String state) {
         this.state = state;
-    }
-
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
     }
 
     public String getName() {
@@ -163,5 +165,13 @@ public class Member extends IdEntity {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    public Member() {
+    }
+
+    public Member(String loginName, String password) {
+        this.loginName = loginName;
+        this.password = password;
     }
 }
