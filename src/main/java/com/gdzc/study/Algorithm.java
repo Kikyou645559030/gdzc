@@ -52,4 +52,23 @@ public class Algorithm {
             System.exit(-1);
         }
     }
+
+    //二分法,针对已经排好序的数组,查询一个数字在数组中的位置
+    public static int binarySearch(int[] a, int num){
+        if (a.length == 0) return -1;
+        int startPos = 0;
+        int endPos = a.length - 1;
+        int m = (startPos + endPos) / 2;
+        while (startPos <= endPos){
+            if (num == a[m]) return m;
+            if (num > a[m]){
+                startPos = m + 1;
+            }
+            if (num < a[m]){
+                endPos = m - 1;
+            }
+            m = (startPos + endPos) / 2;
+        }
+        return -1;
+    }
 }
