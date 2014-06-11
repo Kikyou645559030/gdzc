@@ -9,9 +9,11 @@ public class Algorithm {
         Integer[] arrayList = new Integer[args.length];
         if (args.length > 0){
             if (args.length > 1){
+                //将输入的字符串数组转换为Integer数组
                 for (int i = 0; i < args.length;i++){
                     arrayList[i] = Integer.parseInt(args[i]);
                 }
+
                 //选择排序，比较出小的立即换位，再比较后面
                 Integer temp;
                 for (int i = 0; i < arrayList.length; i++){
@@ -40,6 +42,8 @@ public class Algorithm {
                         arrayList[k] = t;
                     }
                 }
+
+                //冒泡排序
             }else {
                 System.out.println(args[0]);
             }

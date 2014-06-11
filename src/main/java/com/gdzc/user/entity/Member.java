@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
+ * 人员实体
  * 创建实体的时候注意不要使用数据库的关键字
  * Created by Liu_Zhichao on 14-6-5.
  */

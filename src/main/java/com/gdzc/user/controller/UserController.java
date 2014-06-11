@@ -19,4 +19,10 @@ public class UserController {
         model.addAttribute("name","幻想低调");
         return "index";
     }
+
+    @RequestMapping(value = "list", method = RequestMethod.GET)
+    public String userList(HttpServletRequest request,Model model){
+
+        return "gdzc/user/userList";
+    }
 }
