@@ -19,14 +19,26 @@ public class ListTest {
         list.add("f");
 
         List<String> hehe = new ArrayList<String>();
-        Iterator<String> iterator = (Iterator)list.iterator();
+
+        Iterator<String> iterator = list.iterator();
         while (iterator.hasNext()){
             hehe.add(iterator.next());
             iterator.remove();
         }
+
+        for (Iterator i = list.iterator(); i.hasNext();){
+            i.remove();
+//            list.remove(i.next());不要这样去除元素，会有例外，使用Iterator就只能让它来管理
+        }
+
         System.out.println(list.size());
         for (String hh : hehe){
             System.out.print(hh+" ");
+        }
+
+        int[] arr = {1,2,3,4,5};
+        for (int i : arr){
+            System.out.println(i);
         }
     }
 
