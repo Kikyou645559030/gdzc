@@ -38,7 +38,7 @@ public class ListTest {
 
         int[] arr = {1,2,3,4,5};
         for (int i : arr){
-            System.out.println(i);
+            System.out.println(i);//增强for循环不能方便的删除集合中的内容，内部使用Iterator实现的
         }
     }
 
