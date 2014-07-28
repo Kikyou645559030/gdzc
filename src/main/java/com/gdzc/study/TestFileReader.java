@@ -16,7 +16,7 @@ public class TestFileReader {
             int ln = 0;
             while ((a = fr.read()) != -1){
 //                char ch = (char) fr.read();
-                System.out.println((char) a);
+                System.out.print((char) a);
                 /*if (++ln >= 100){
                     System.out.println();
                     ln = 0
