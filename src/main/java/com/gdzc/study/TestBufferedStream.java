@@ -8,7 +8,7 @@ import java.io.*;
 public class TestBufferedStream {
     public static void main(String[] args){
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("D:\\a.txt"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter("D:\\a.txt"));//缓冲流
             BufferedReader br = new BufferedReader(new FileReader("D:\\a.txt"));
             String s = null;
             for (int i = 0;i < 100;i++){
