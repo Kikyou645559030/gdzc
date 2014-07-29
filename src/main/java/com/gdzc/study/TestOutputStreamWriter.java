@@ -14,7 +14,8 @@ public class TestOutputStreamWriter {
             OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream("D:\\b.txt"));//加上字符处理流
             osw.write("Writer by 刘志超");
             System.out.println(osw.getEncoding());
-            osw = new OutputStreamWriter(new FileOutputStream("D:\\b.txt",true),"GB2312");//加上true表示在原内容后添加
+            osw.close();//当流没有关闭时，即使创建新的流也还是调用的原来没关闭的流
+            osw = new OutputStreamWriter(new FileOutputStream("D:\\b.txt",true),"utf-8");//加上true表示在原内容后添加
             osw.write("----Writer by 幻想低调");
             System.out.println(osw.getEncoding());
             osw.close();
