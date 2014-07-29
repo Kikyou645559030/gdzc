@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 
 /**
  * Created by Liu_Zhichao on 14-7-29.
+ * 标准输入流
  */
 public class TestIO {
     public static void main(String[] args){

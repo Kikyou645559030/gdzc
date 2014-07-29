@@ -7,6 +7,7 @@ import java.io.IOException;
 
 /**
  * Created by Liu_Zhichao on 14-7-18.
+ * 文件输入输出流
  */
 public class TestFileInputStream {
     public static void main(String[] args){

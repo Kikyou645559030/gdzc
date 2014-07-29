@@ -4,6 +4,7 @@ import java.io.*;
 
 /**
  * Created by Liu_Zhichao on 14-7-28.
+ * 字符输入输出缓冲流
  */
 public class TestBufferedStream {
     public static void main(String[] args){
