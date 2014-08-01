@@ -2,6 +2,7 @@ package com.gdzc.study;
 
 /**
  * Created by Liu_Zhichao on 14-8-1.
+ * 实现Runnable接口,new Thread类来启动线程
  */
 public class TestThread1 {
     public static void main(String[] args){
