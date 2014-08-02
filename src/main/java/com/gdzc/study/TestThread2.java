@@ -2,7 +2,7 @@ package com.gdzc.study;
 
 /**
  * Created by Liu_Zhichao on 14-8-1.
- * 继承Thread类,可以直接启动线程
+ * 继承Thread类,可以直接启动线程,不推荐
  */
 public class TestThread2 {
     public static void main(String[] args){
