@@ -1,4 +1,4 @@
-package com.gdzc.study;
+package com.gdzc.study.other;
 
 import java.util.ArrayList;
 

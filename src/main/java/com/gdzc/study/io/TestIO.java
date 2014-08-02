@@ -1,4 +1,4 @@
-package com.gdzc.study;
+package com.gdzc.study.io;
 
 import java.io.BufferedReader;
 import java.io.IOException;

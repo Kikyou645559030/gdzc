@@ -1,6 +1,8 @@
-package com.gdzc.study;
+package com.gdzc.study.io;
+
 
 import java.io.*;
+import java.util.Date;
 
 /**
  * Created by Liu_Zhichao on 14-7-30.
@@ -21,7 +23,7 @@ public class TestPrintStream3 {
                 log.println(s);
                 log.flush();
             }
-            log.println("--------------"+new Data()+"--------------");
+            log.println("--------------"+new Date()+"--------------");
             log.flush();
             log.close();
         } catch (IOException e) {

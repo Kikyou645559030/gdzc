@@ -1,4 +1,4 @@
-package com.gdzc.study;
+package com.gdzc.study.io;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

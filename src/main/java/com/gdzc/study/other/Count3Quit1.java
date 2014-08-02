@@ -1,4 +1,4 @@
-package com.gdzc.study;
+package com.gdzc.study.other;
 
 /**
  * 用面向对象的方式完成数三退一

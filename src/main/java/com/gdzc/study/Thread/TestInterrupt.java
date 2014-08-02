@@ -1,4 +1,4 @@
-package com.gdzc.study;
+package com.gdzc.study.Thread;
 
 import java.util.Date;
 

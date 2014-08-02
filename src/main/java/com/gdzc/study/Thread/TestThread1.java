@@ -1,4 +1,4 @@
-package com.gdzc.study;
+package com.gdzc.study.Thread;
 
 /**
  * Created by Liu_Zhichao on 14-8-1.

@@ -1,4 +1,4 @@
-package com.gdzc.study;
+package com.gdzc.study.other;
 
 /**
  * Created by Liu_Zhichao on 14-5-18.
