@@ -4,6 +4,7 @@ package com.gdzc.study.Thread;
  * Created by Liu_Zhichao on 14-8-8.
  * 锁定一个对象的某个方法,但是可以访问这个对象的其他方法
  * 互斥,保证某一个时间段只有一个线程进入该方法(被上锁的方法),不保证其他线程是否进入其他方法
+ * 一把锁,两个方法,锁住一个就锁不住另一个了
  */
 public class TestT implements Runnable{
 
