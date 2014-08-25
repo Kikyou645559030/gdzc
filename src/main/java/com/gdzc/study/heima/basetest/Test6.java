@@ -19,7 +19,7 @@ public class Test6 {
 		System.out.println(e1);
 		System.out.println(e2);
 		System.out.println(e3);
-	}
+    }
 }
 
 /**
