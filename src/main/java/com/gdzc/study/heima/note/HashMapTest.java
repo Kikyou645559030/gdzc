@@ -12,18 +12,18 @@ import java.util.Set;
 
 public class HashMapTest{
     public static void main(String[] args){
-        HashMap map = new HashMap();
+        HashMap hashMap = new HashMap();
 
-        map.put("a","aaaa");
-        map.put("b","bbbb");
-        map.put("c","cccc");
-        map.put("d","dddd");
+        hashMap.put("a", "aaaa");
+        hashMap.put("b", "bbbb");
+        hashMap.put("c", "cccc");
+        hashMap.put("d", "dddd");
 
-        Set set = map.keySet();
+        Set set = hashMap.keySet();
 
         for(Iterator iter = set.iterator(); iter.hasNext();){
             String key = (String)iter.next();
-            String value = (String)map.get(key);
+            String value = (String)hashMap.get(key);
             System.out.println(key+"===="+value);
         }
     }
