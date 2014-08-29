@@ -4,7 +4,13 @@ import java.util.Date;
 
 /**
  * Created by Liu_Zhichao on 14-8-29.
- * 类加载器--系统默认的三个为BootStrap(非Java写的,最顶级的)、ExtClassLoader(继承前面的)、AppClassLoader(继承前面的)
+ * 类加载器--系统默认的三个为BootStrap(非Java写的,最顶级的--范围是rt.jar)、
+ * ExtClassLoader(继承前面的--范围是jdk目录下的jre\lib\ext目录下的所有jar)、
+ * AppClassLoader(继承前面的--classpath及其他jar)
+ * 加载原则(委托机制)：一层层向上委托，从BootStrap开始往下找class，找到了就直接加载
+ * 举例：加载MyServlet类，由于继承了HttpServlet类，所以由当前加载器去加载HttpServlet类，
+ * 由子类加载器来加载就可以了，而把MyServlet.class放到ext目录下，HttpServlet类相关的jar包没有放进去就会报错了。
+ * 说明：父类加载器(ExtClassLoader)无法引用只能被子类加载器加载的类(HttpServlet)
  */
 public class ClassLoaderTest {
     public static void main(String[] args){
