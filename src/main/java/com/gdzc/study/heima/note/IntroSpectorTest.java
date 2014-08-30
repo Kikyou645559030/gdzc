@@ -30,6 +30,7 @@ public class IntroSpectorTest {
             System.out.println(BeanUtils.getProperty(rp,propertyName));
             BeanUtils.setProperty(rp,propertyName,value);
             System.out.println(rp.getX());
+
             //通过BeanUtils工具类还可以设置属性的级联属性，不过需要级联属性的上一级属性有初始化的对象
             BeanUtils.setProperty(rp,"birthday.time","1111");
             System.out.println(BeanUtils.getProperty(rp,"birthday.time"));
