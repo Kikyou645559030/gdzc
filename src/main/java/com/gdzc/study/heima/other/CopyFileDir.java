@@ -31,21 +31,18 @@ public class CopyFileDir {
 
                         FileOutputStream fos = new FileOutputStream(targetPath + File.separator + file.getName());
                         BufferedOutputStream bos = new BufferedOutputStream(fos);
-                        while (bis.read() != -1){
-                            bos.write(bis.read());
-                        }
-
-//                        byte[] bytes = new byte[1024];
-//                        int len;
-//                        while ((len = bis.read()) != -1){
-//                            bos.write(bytes,0,len);
+//                        while (bis.read() != -1){
+//                            bos.write(bis.read());
 //                        }
+
+                        byte[] bytes = new byte[1024];
+                        int len;
+                        while ((len = bis.read(bytes)) != -1){
+                            bos.write(bytes,0,len);
+                        }
                         bos.flush();
                         bis.close();
                         bos.close();
-                        if (file.length() == (new File(targetPath + File.separator + file.getName())).length()){
-                            System.out.println("文件复制成功");
-                        }
                     } catch (FileNotFoundException e) {
                         e.printStackTrace();
                     } catch (IOException e) {
