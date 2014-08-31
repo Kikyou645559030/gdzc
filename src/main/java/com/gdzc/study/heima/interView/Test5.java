@@ -1,4 +1,4 @@
-package com.gdzc.study.heima.tset;
+package com.gdzc.study.heima.interview;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

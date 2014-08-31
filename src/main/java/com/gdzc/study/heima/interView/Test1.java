@@ -1,4 +1,4 @@
-package com.gdzc.study.heima.tset;
+package com.gdzc.study.heima.interview;
 
 /**
  * Created by Liu_Zhichao on 14-8-31.
@@ -10,5 +10,4 @@ package com.gdzc.study.heima.tset;
  * Verctor是一个可变数组
  */
 public class Test1 {
-
 }

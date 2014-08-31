@@ -1,4 +1,4 @@
-package com.gdzc.study.heima.tset;
+package com.gdzc.study.heima.interview;
 
 /**
  * Created by Liu_Zhichao on 14-8-31.
@@ -8,7 +8,7 @@ public class Test4 {
     public static void main(String[] args){
         //三种获取字节码的方式
         try {
-            Class clazz1 = Class.forName("com.gdzc.study.heima.tset.Test4");
+            Class clazz1 = Class.forName("com.gdzc.study.heima.interview.Test4");
 
             Class clazz2 = Test4.class;
 
