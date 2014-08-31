@@ -1,32 +1,58 @@
 package com.gdzc.study.heima.other;
 
-import java.io.File;
+import java.io.*;
 
 /**
  * Created by Liu_Zhichao on 14-8-31.
- * 只复制文件件
+ * 复制文件件及文件
  */
 public class CopyFileDir {
-    public static void main(String[] args)
-    {
-        String str1="E:\\remove";
-        String str2="D:\\remove";
-        copyFileDir(str1,str2);
+    public static void main(String[] args){
+        copyFile("F:\\Temp","D:\\Temp");
     }
-    public static void copyFileDir(String src,String des)
-    {
-        File srcFile=new File(src);
-        File desFile=new File(des);
 
-        if(!srcFile.exists())
+    public static void copyFile(String filePath,String targetPath){
+        File srcFile = new File(filePath);
+        File tarFile = new File(targetPath);
+        if (!srcFile.exists()){
+            System.out.println("目录不存在");
             return;
-        if(!desFile.exists())
-            desFile.mkdirs();
-        File[] files=srcFile.listFiles();
-        for(File file:files)
-        {
-            if(file.isDirectory())
-                copyFileDir(file.getPath(),des+ File.separator+file.getName());
+        }
+        if (!tarFile.exists()){
+            tarFile.mkdirs();
+            File[] files = srcFile.listFiles();
+            for (File file : files){
+                if (file.isDirectory()){
+                    copyFile(file.getPath(),targetPath + File.separator +file.getName());
+                }else if (file.isFile()){
+                    try {
+                        FileInputStream fis = new FileInputStream(file);
+                        BufferedInputStream bis = new BufferedInputStream(fis);
+
+                        FileOutputStream fos = new FileOutputStream(targetPath + File.separator + file.getName());
+                        BufferedOutputStream bos = new BufferedOutputStream(fos);
+                        while (bis.read() != -1){
+                            bos.write(bis.read());
+                        }
+
+//                        byte[] bytes = new byte[1024];
+//                        int len;
+//                        while ((len = bis.read()) != -1){
+//                            bos.write(bytes,0,len);
+//                        }
+                        bos.flush();
+                        bis.close();
+                        bos.close();
+                        if (file.length() == (new File(targetPath + File.separator + file.getName())).length()){
+                            System.out.println("文件复制成功");
+                        }
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 }
