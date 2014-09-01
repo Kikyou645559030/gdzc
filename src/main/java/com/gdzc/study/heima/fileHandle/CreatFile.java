@@ -1,4 +1,4 @@
-package com.gdzc.study.heima.other;
+package com.gdzc.study.heima.fileHandle;
 
 import java.io.File;
 import java.io.IOException;
