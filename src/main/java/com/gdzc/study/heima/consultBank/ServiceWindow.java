@@ -1,4 +1,4 @@
-package com.gdzc.study.heima.bank;
+package com.gdzc.study.heima.consultBank;
 
 import java.util.Random;
 import java.util.concurrent.Executors;

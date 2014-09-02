@@ -1,4 +1,4 @@
-package com.gdzc.study.heima.bank;
+package com.gdzc.study.heima.consultBank;
 
 /**
  * Created by Liu_Zhichao on 14-9-1.

@@ -31,8 +31,10 @@ public class CopyFileDir {
 
                         FileOutputStream fos = new FileOutputStream(targetPath + File.separator + file.getName());
                         BufferedOutputStream bos = new BufferedOutputStream(fos);
-//                        while (bis.read() != -1){
-//                            bos.write(bis.read());
+                        //需要定义一个变量来接收读取的字节数，而不是再去读取。
+//                        int len;
+//                        while ((len = bis.read()) != -1){
+//                            bos.write(len);
 //                        }
 
                         byte[] bytes = new byte[1024];
