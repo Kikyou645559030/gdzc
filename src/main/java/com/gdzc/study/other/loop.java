@@ -34,18 +34,20 @@ public class loop {
     Comparable----Comparator（比较器）
      */
     private static void iteratorTest(){
-        List arrList = new ArrayList();
-        List likList = new LinkedList();
-        List vector = new Vector();
+        List arrList = new ArrayList();//查询快，增删慢，效率高，线程不同步，不安全，底层是数组
+        List likList = new LinkedList();//查询慢，增删快，效率高，线程不同呗，不安全，底层Hi链表
+        List vector = new Vector();//查询快，增删慢，效率低，线程同步，安全，底层是数组
 
-        Set hashSet = new HashSet();
-        Set treeSet = new TreeSet();
-        HashSet likSet = new LinkedHashSet();
+        Set hashSet = new HashSet();//不排序，底层是hash表
+        Set treeSet = new TreeSet();//对元素进行排序，底层是二叉树
+        HashSet likSet = new LinkedHashSet();//有序的
 
-        Map hashMap = new HashMap();
-        Map treeMap = new TreeMap();
+        Map hashMap = new HashMap();//对键不排序，线程不同步，效率高
+        //怎么保证tree(底层是二叉树的)结构的排序，当元素具备比较性(自然排序)，
+        // 实现Comparable接口，当集合具备比较性(比较器排序)，实现Comparator接口
+        Map treeMap = new TreeMap();//对键排序，线程不同步，效率高
         HashMap likMap = new LinkedHashMap();
-        Map hashTable = new Hashtable();
+        Map hashTable = new Hashtable();//线程安全，效率低
 
         hashSet.add("111");
         hashSet.add("222");
