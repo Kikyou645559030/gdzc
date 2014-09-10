@@ -1,0 +1,11 @@
+.menu li{
+    list-style-type: none;
+}
+
+.title{
+    font-size: 20px;
+    color: red;
+}
+.wid{
+    width: 80%;
+}
