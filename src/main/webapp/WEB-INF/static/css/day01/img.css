@@ -5,3 +5,20 @@
 .ta thead tr{
     text-align: center;
 }
+
+.imgtext{
+    position: absolute;/*绝对的*/
+    top: 100px;
+    left: 20px;
+}
+.image{
+    float: left;
+}
+.text{
+    position: absolute;
+    top: 100px;
+    left: 50px;
+}
+.mar{
+    position:relative;/*相对的*/
+}
