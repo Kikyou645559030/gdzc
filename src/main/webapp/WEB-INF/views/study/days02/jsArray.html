@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JavaScript Array对象</title>
+    <script type="text/javascript">
+        /*
+         concat()--------连接多个数组或者元素
+         join()------------把数组所有的元素通过指定分隔符分隔，用字符串表示出来
+         pop()------------删除并返回数组的最后一个元素
+         push()----------向数组的末尾添加一个或更多元素，并返回新的长度
+         reverse()------反转数组
+         shift()-----------删除并返回数组的第一个元素
+         slice()-----------从某个已有的数组返回选定的元素
+         sort()------------对数组的元素进行排序
+         splice()--------删除元素，并向数组添加新元素。
+         toString()-----把数组转换为字符串，并返回结果。
+         toLocaleString()--把数组转换为本地数组，并返回结果。
+         unshift()------向数组的开头添加一个或更多元素，并返回新的长度。
+         */
+//        创建数组
+        var arr1 = ["1","2","3"];
+        arr1.splice(1,2,"rt");//第2个参数是0的时候是插入，1的时候是一个，添加第3个以及后面的参数
+        alert(arr1);
+        var arr2 = new Array(1,2,3);
+        var arr3 = new Array(5);
+        arr1.concat(arr2,"11");
+        arr2.join("-");
+        arr2.pop();
+        arr2.push("d","r");
+        arr1.reverse();
+        arr1.sort();
+        arr1.slice(1,2);//返回下标区间的数组
+        arr1.splice(1,0,"rt");//删除从下标为1开始往后0个长度的元素，再在下标1的位置插入"rt"，最后可以是多个参数，添加多个参数
+        arr1.toString();
+        arr1.toLocaleString();
+        arr1.unshift("sta","second");
+    </script>
+</head>
+<body>
+
+</body>
+</html>

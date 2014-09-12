@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第2天第一题作业</title>
+    <!--题目一：写一个去掉字符串前后空格的方法-->
+    <script type="text/javascript">
+        var s = "   kikyou   ";
+        document.write(s.length + "<br />");
+        document.write(trim(s).length);
+
+        function trim(str){
+            var start = 0;//截取字符串的开始位置，默认0
+            var end = str.length - 1;//截取字符串的结束位置，默认截取到最后一位
+
+            //获取第一个非空格的字符下标
+            for(var i = 0;i < str.length;i++){
+                if(" " != str.charAt(i)){
+                    start = i;
+                    break;
+                }
+            }
+            //获取从后往前看第一个非空格的字符下标
+            for(var i = end;i >= 0;i--){
+                if(" " != str.charAt(i)){
+                    end = i;
+                    break;
+                }
+            }
+            return str.substring(start,end + 1);//截取开始位置到结束位置+1的地方，因为substring()方法包含start不包含end
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>JavaScript基础</title>
+    <!--<script type="text/javascript" src="../../../static/js/days02/write.js" />-->
+
+    <script type="text/javascript">
+//        var i = 3;
+        /*
+        非法数字--NaN
+        0或者null是false，非0或者非null是true
+        */
+//        alert(i > 2 && i < 4);//一定要用双&符号来表示
+//        alert(i > 2 & i < 4);//结果为1
+//        alert(!i);//i是非0为真，所以结果是false
+//        alert(typeof "a");//获取类型
+//        alert(typeof 'a' == "string");//判断类型
+//        alert(typeof 12);
+//        alert(typeof 1.2);
+
+        /*
+        js的基本数据类型：string、number、boolean、null、undefined
+         */
+        var date = new Date();//所有引用都是object类型
+        alert(date);
+        alert(typeof date);
+
+        document.write("<table border='1' width='50%' cellpadding='10' >");
+        for(var i = 1; i <= 9; i++){
+            document.write("<tr>");
+            for(var j = 1; j <= i;j++){
+                document.write("<td>" + j + "*" + i + "=" + i * j + "</td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+        /*
+        创建数组的三种方式：
+         */
+        var arr1 = [];//没有元素
+        var arr2 = new Array(5);
+        var arr3 = new Array(1,2,3);
+    </script>
+
+</head>
+<body>
+</body>
+</html>

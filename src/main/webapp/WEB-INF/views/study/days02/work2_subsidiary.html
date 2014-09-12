@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第2天第二题作业数据准备</title>
+    <style type="text/css">
+        table,table tr td,table tr th{
+            border: 1px solid #1166ff;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function choose(id,name){
+            var id = document.getElementById(id).innerHTML;
+            var name = document.getElementById(name).innerHTML;
+            window.opener.document.getElementById("id").value = id;
+            window.opener.document.getElementById("name").value = name;
+//            window.close();//立即关闭
+            window.setTimeout("window.close()",5000);//过5秒后关闭窗口
+        }
+    </script>
+</head>
+<body>
+    <table class="tab" style="padding: 0px;">
+        <tr>
+            <th>ID</th>
+            <th>姓名</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <td id="oneId">00001</td>
+            <td id="oneName">张三</td>
+            <td><input type="button" value="选择" onclick="choose('oneId','oneName')"/></td>
+        </tr>
+        <tr>
+            <td id="twoId">00002</td>
+            <td id="twoName">李四</td>
+            <td><input type="button" value="选择" onclick="choose('twoId','twoName')"/></td>
+        </tr>
+    </table>
+</body>
+</html>
