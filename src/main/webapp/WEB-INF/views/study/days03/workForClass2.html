@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第3天课后作业</title>
+    <!--一个输入框输入行，一个输入框输入列，一个按钮，在下面生成一个对应的表格-->
+    <style type="text/css">
+        table,tr,td{
+            border: 1px solid darkorchid;
+        }
+    </style>
+</head>
+<body>
+        行：<input id="row" type="text"/><br/>
+        列：<input id="col" type="text"/><br/>
+        <button id="creatTable">生成表格</button>
+</body>
+<script type="text/javascript">
+    document.getElementById("creatTable").onclick = function(){
+        var table = document.getElementsByTagName("table")[0];
+        if(table != null){
+            table.remove();
+        }
+//        var tabs = document.getElementsByTagName("table");
+//        for(var k = 0; k < tabs.length; k++){
+//            tabs[k].remove();
+//        }
+        var rowNum = document.getElementById("row").value;
+        var colNum = document.getElementById("col").value;
+        var tab = document.createElement("table");
+//        tab.setAttribute("cellPadding","0");
+//        tab.setAttribute("cellSpacing","0");
+        tab.cellPadding = 0;
+        tab.cellSpacing = 0;
+        for(var i = 1; i <= rowNum; i++){
+            var row = tab.insertRow();//没有参数时是在后面追加，有参数时创建在指定的位置之前
+            for(var j = 1; j <= colNum; j++){
+                var text = document.createTextNode(i + "行" + j + "列");
+                var col = row.insertCell();//没有参数时是在后面追加，有参数时创建在指定的位置之前
+                col.appendChild(text);
+            }
+        }
+        document.body.appendChild(tab);
+    };
+</script>
+</html>

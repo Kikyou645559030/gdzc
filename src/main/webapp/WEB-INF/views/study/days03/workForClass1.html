@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第3天课后作业在指定节点之前插入子节点</title>
+    <!--insertBefore(new,old)在指定节点之前插入子节点，对table无效-->
+    <script type="text/javascript">
+//        document.getElementById("add").onclick() = function(){};
+        var count = 1;
+        function add(id){
+            var end = document.getElementById(id);
+            var ul = document.getElementById("ul");
+            var data = document.createTextNode(count.toString());
+            count++;
+            var li = document.createElement("li");
+            li.appendChild(data);
+            ul.insertBefore(li,end);
+        }
+    </script>
+</head>
+<body>
+    <ul id="ul">
+        <li>编号</li>
+        <li id="end"><button onclick="add('end')">添加</button></li>
+    </ul>
+</body>
+</html>

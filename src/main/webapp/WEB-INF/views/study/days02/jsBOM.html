@@ -3,7 +3,37 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>JavaScript BOM</title>
+    <title>JavaScript BOM对象</title>
+    <script type="text/javascript">
+        /*
+        Window-----------代表整个窗口
+        Navigator---------和浏览器相关的对象
+        Screen------------和屏幕相关的对象
+        History------------和浏览器历史相关的对象
+        Location----------和浏览器地址相关的对象
+
+         弹出的窗口,写上window.opener,可以得到创建此窗口的窗口对象
+
+         window.frames 返回窗口中所有命名的框架
+         parent是父窗口（如果窗口是顶级窗口，那么parent==self==top）
+         top是最顶级父窗口（有的窗口中套了好几层frameset或者iframe）
+         self是当前窗口（等价window）
+         opener是用open方法打开当前窗口的那个窗口
+         */
+        //navigator对象的一些属性
+        document.write(navigator.appCodeName + "--------------");
+        document.write(navigator.appName + "--------------");
+        document.write(navigator.appVersion + "--------------");
+
+        //history的一些方法
+        history.length;//返回浏览器历史列表中的url数量
+        history.back();//返回上一页面
+        history.go(-1);//参数-1效果同back(),参数1则是进入下一页面，2是下两个页面，以此类推
+
+        //location的一些属性
+        location.host;//设置或返回主机名和当前URL的端口号
+        location.href;//设置或返回完整的URL
+    </script>
 </head>
 <body>
 

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第3天课堂练习全选反选</title>
+    <script type="text/javascript">
+        var cks = document.getElementsByName("love");
+
+        function check(obj){
+            var flag = obj.checked;
+            for(var p = 0; p < cks.length; p++){
+                cks[p].checked = flag;
+            }
+        }
+
+        function checkAll(){
+            for(var i = 0; i < cks.length; i++){
+//                cks[i].setAttribute("checked","true");
+                cks[i].checked = true;
+            }
+        }
+
+        function notCheck(){
+            for(var j = 0; j < cks.length; j++){
+                cks[j].checked = false;
+//                cks[j].removeAttribute("checked");
+            }
+        }
+
+        function opposite(){
+            for(var k = 0; k < cks.length; k++){
+                cks[k].checked = !cks[k].checked;//最简单的反选方法
+                /*if(cks[k].checked == true){
+                    cks[k].checked == false;
+                }else{
+                    cks[k].checked == true;
+                }*/
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="all" onclick="check(this)"/>
+    <input type="checkbox" name="love" />
+    <input type="checkbox" name="love" />
+    <input type="checkbox" name="love" />
+    <input type="checkbox" name="love" />
+    <input type="checkbox" name="love" />
+    <input type="checkbox" name="love" />
+    <button onclick="checkAll()">全选</button>
+    <button onclick="notCheck()">全不选</button>
+    <button onclick="opposite()">反选</button>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        var ul = document.getElementById("first");
+        var lis = document.getElementsByTagName("li");//只拿到第一个ul下面的标签名是li的子节点
+        var li = ul.firstElementChild;//拿到第一个孩子元素节点(区别于firstChild)
+        var name = li.nodeName;//拿到节点的名称
+        var type = li.nodeType;//拿到节点的类型
+        var value = li.nodeValue;
+
+    </script>
+</head>
+<body>
+    <ul id="first">
+        <li>呵呵</li>
+        <li>哈哈</li>
+    </ul>
+
+    <ul id="second">
+        <li>一一</li>
+        <li>二二</li>
+    </ul>
+
+    <span>嘎嘎</span>
+</body>
+</html>

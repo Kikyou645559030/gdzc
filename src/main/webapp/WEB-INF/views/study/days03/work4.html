@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第3天课堂练习</title>
+    <style type="text/css">
+        .left{
+            float: left;
+            margin-right: 50px;
+        }
+        select{
+            width: 100px;
+            height: 150px;
+        }
+        span{
+            background-color: darkslategray;
+            color: white;
+        }
+        span:hover{
+            color: gainsboro;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="left">
+        <div>
+            <select multiple="multiple" id="se1" ondblclick="put()">
+                <option>11111</option>
+                <option>22222</option>
+                <option>33333</option>
+                <option>44444</option>
+                <option>55555</option>
+                <option>66666</option>
+            </select>
+        </div>
+        <div>
+            <span id="add">添加选中项到右边&gt;&gt;&gt;</span>
+        </div>
+        <div>
+            <span id="addAll">添加所有项到右边&gt;&gt;&gt;</span>
+        </div>
+    </div>
+
+    <div>
+        <div>
+            <select multiple="multiple" id="se2" ondblclick="del()">
+                <option>77777</option>
+                <option>88888</option>
+            </select>
+        </div>
+        <div>
+            <span id="remove">&lt;&lt;&lt;删除选中项到左边</span>
+        </div>
+        <div>
+            <span id="removeAll">&lt;&lt;&lt;删除所有项到左边</span>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    /*
+     思路：1.绑定按钮事件
+     2.获取两个select对象
+     3.(移动所有)获取所有子节点的值
+     4.(移动所有)循环遍历添加到另外一边去
+     5.获取所有子节点，判断selected是否为true
+     6.如果为true则将节点移动到另一边去
+     */
+    var leftSel = document.getElementById("se1");
+    var rightSel = document.getElementById("se2");
+    //移动选中的到右边
+    document.getElementById("add").onclick = function(){
+        removeChoose(leftSel,rightSel);
+    };
+
+    //移动选中的到左边
+    document.getElementById("remove").onclick = function(){
+        removeChoose(rightSel,leftSel);
+    };
+
+    //双击移动
+    function put(){
+        removeChoose(leftSel,rightSel);
+    }
+
+    function del(){
+        removeChoose(rightSel,leftSel);
+    }
+
+    //移动全部到右边
+    document.getElementById("addAll").onclick = function(){
+        removeAll(leftSel,rightSel);
+    };
+
+    //移动全部到左边
+    document.getElementById("removeAll").onclick = function(){
+        removeAll(rightSel,leftSel);
+    };
+
+    //移动选择的一部分到另一边去
+    function removeChoose(start,target){
+        var ops = start.getElementsByTagName("option");
+        for(var i = 0; i < ops.length; i++){
+            var flag = ops[i].selected;
+            if(flag){
+                target.appendChild(ops[i]);
+                i--;
+            }
+        }
+    }
+
+    //移动全部到另一边的方法
+    function removeAll(start,target){
+        var opsAll = start.getElementsByTagName("option");
+        for(var i = 0; i < opsAll.length;){
+            target.appendChild(opsAll[i]);//就是移动节点
+        }
+    }
+</script>
+</html>

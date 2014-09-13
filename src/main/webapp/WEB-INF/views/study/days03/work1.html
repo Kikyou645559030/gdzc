@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第3天课堂练习添加子节点</title>
+    <script type="text/javascript">
+        //document的操作
+        function add(city){
+            var put = document.getElementById(city).value;
+            var text = document.createTextNode(put);
+            var li = document.createElement("li");
+            li.appendChild(text);
+            document.getElementById("u").appendChild(li);
+        }
+    </script>
+</head>
+<body>
+    <ul id="u">
+        <li>北京</li>
+        <li>上海</li>
+        <li>广州</li>
+    </ul>
+    请输入要增加的城市：<input id="city" type="text"/><br/>
+    <input type="button" value="增加" onclick="add('city')"/>
+</body>
+</html>

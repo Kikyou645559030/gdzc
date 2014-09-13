@@ -7,9 +7,22 @@
     <script type="text/javascript" src="../../../static/js/days02/write.js" />
     <script type="text/javascript">
         /*
-         A
+         Date()------------------------返回当日的日期和时间
+         getDate()--------------------从 Date 对象返回一个月中的某一天 (1 ~ 31)，对应setDate()
+         getDay()---------------------从 Date 对象返回一周中的某一天 (0 ~ 6)
+         getMonth()------------------从 Date 对象返回月份 (0 ~ 11)
+         getFullYear()---------------从 Date 对象以四位数字返回年份
+         getTime()-------------------返回 1970 年 1 月 1 日至今的毫秒数
+         parse()-----------------------返回1970年1月1日午夜到指定日期（字符串）的毫秒数
+         toLocaleString()----------将日期和时间转换为本地日期和时间
+         toLocaleTimeString()--将时间转换本地时间
+         toLocaleDateString()--将日期转换本地日期
          */
-
+        var date = new Date();
+        var time = date.getTime();
+        var date1 = new Date(time);
+        var time1 = Date.parse(date.toDateString());
+        date1.toLocaleString();
     </script>
 </head>
 <body>

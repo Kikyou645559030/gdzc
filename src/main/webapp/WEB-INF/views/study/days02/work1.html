@@ -21,8 +21,8 @@
                     break;
                 }
             }
-            //获取从后往前看第一个非空格的字符下标
-            for(var i = end;i >= 0;i--){
+            //获取从后往前看第一个非空格的字符下标,i大于start防止全空格出错，提高效率
+            for(var i = end;i > start;i--){
                 if(" " != str.charAt(i)){
                     end = i;
                     break;
