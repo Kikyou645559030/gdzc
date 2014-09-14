@@ -5,6 +5,55 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title></title>
     <script type="text/javascript">
+        /*
+         Document对象
+             forms[]返回对文档中所有 Form 对象引用，属性
+             body  提供对 body 元素的直接访问，属性
+             getElementById("id的值");
+             getElementsByName("name属性的名称");
+             getElementsByTagName("标签名称");
+                 document.getElementById().getElementsByTagName();//获取指定id节点下对应的所有子节点
+             write("文本内容");         向页面写入内容
+
+         Element对象
+             createElement(“li”)                         创建元素对象
+             createTextNode(“文本内容”)          创建文本对象
+             appendChild(node)                               添加子节点
+             getAttribute("属性的名称");
+             setAttribute("name","value");
+             removeAttribute("name的名称");
+                 firstElementChild;//拿到第一个孩子元素节点(区别于firstChild)
+
+         Node对象(节点对象)查API节点
+             nodeName       节点名称
+             nodeType       节点类型
+             nodeValue      节点的值
+
+         父节点、子节点、兄弟节点
+             hasChildNodes      判断是否有子节点
+             hasAttributes          判断是否包含属性
+             insertBefore(new,old)    在指定的节点之前插入新的节点
+             replaceChild(new,old)  替换节点
+             removeChild(node)      删除节点
+             cloneNode(boolean)     复制节点    返回新的节点
+                 true       复制子节点
+                 false      不会复制子节点
+
+         innerHTML      获取和设置文本内容
+         */
+
+        /*
+         事件的总结:
+         onclick            单击事件
+         ondblclick         双击事件
+         onload             加载事件
+         onunload           卸载事件
+         onfocus            获得焦点
+         onblur             失去焦点
+         onkeyup        键盘按键被松开事件
+         onchange       内容被改变触发的事件
+         */
+
         var ul = document.getElementById("first");
         var lis = document.getElementsByTagName("li");//只拿到第一个ul下面的标签名是li的子节点
         var li = ul.firstElementChild;//拿到第一个孩子元素节点(区别于firstChild)

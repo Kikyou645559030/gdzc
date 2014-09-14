@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第3天课堂练习事件</title>
+    <script type="text/javascript">
+        var cueText = document.createTextNode("请填写用户名！");
+        var checkText = document.createTextNode("您输入的用户名已被使用，请重新输入！");
+        /*
+         获得焦点事件
+         */
+        function cue(){
+            var span = document.getElementById("text");
+            span.removeAttribute("class");
+            span.innerHTML = "";//通过设置空串来清空子节点
+            span.appendChild(cueText);
+        }
+
+        /*
+        失去焦点事件
+        */
+        function check(){
+            var span = document.getElementById("text");
+            span.innerHTML = "";
+            span.className = "red";//就是class属性
+            span.appendChild(checkText);
+        }
+
+        /*
+        键盘按键被松开事件
+         */
+        function show(keyWord){
+            var tab = document.getElementById("tab");
+            tab.innerHTML = "";
+            if(keyWord != ""){
+                for(var i = 1; i <= 9; i++){
+                    var result = document.createTextNode(keyWord + i);
+                    var row = tab.insertRow();//没有参数时是在后面追加，有参数时创建在指定的位置之前
+                    var col = row.insertCell();//没有参数时是在后面追加，有参数时创建在指定的位置之前
+                    col.appendChild(result);
+                    row.appendChild(col);
+                    tab.appendChild(row);
+                }
+                tab.style.display = "block";//display样式需要多重设置
+//            tab.setAttribute("style","display:block;");
+            }else{
+                tab.style.display = "none";
+            }
+        }
+
+        function fun(){
+            alert("我是广告！");
+        }
+
+        /*onunload="sure()"
+        function sure(){
+            alert("您即将退出！");
+        }*/
+
+        //鼠标移上
+        function reveal(){
+            document.getElementById("over").style.display = "block";
+        }
+
+        //鼠标移走
+        function hide(){
+            document.getElementById("over").style.display = "none";
+        }
+    </script>
+    <style type="text/css">
+        .red{
+            color: red;
+        }
+        table{
+            border: 1px solid #000000;
+            width: 155px;
+            display: none;
+        }
+        #over{
+            display: none;
+        }
+        .mar{
+            margin-bottom: 10px;
+        }
+        #bottom{
+            float: left;
+        }
+    </style>
+</head>
+<body onload="fun()">
+    <div>
+        <div class="mar">
+            <input type="text" onfocus="cue()" onblur="check()"/>
+            <span id="text"></span>
+        </div>
+        <div class="mar">
+            <input type="text" onkeyup="show(this.value)"/>
+            <table id="tab">
+            </table>
+        </div>
+        <div>
+            <input id="bottom" type="text" onmouseover="reveal()" onmouseout="hide()"/>
+            <span id="over">请输入查询条件</span>
+        </div>
+    </div>
+</body>
+</html>

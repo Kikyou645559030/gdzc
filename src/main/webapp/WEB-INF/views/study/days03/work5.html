@@ -4,13 +4,55 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>第3天课堂练习省市级联</title>
+    <script type="text/javascript">
+        var arr = new Array(5);
+        arr[0] = ["北京","东城区","西城区","崇文区","宣武区","朝阳区","丰台区","石景山区","海淀区","门头沟区",
+            "房山区","通州区","顺义区","昌平区","大兴区","怀柔区","平谷区"];
+        arr[1] = ["重庆","万州区","涪陵区","渝中区","大渡口区","沙坪坝区","九龙坡区","江北区","南岸区","北碚区",
+            "万盛区","双桥区","渝北区","巴南区","黔江区","长寿区","江津市","合川市","永川市","南川市"];
+        arr[2] = ["湖北","武汉市","黄石市","十堰市","宜昌市","襄樊市","鄂州市","荆门市","孝感市","荆州市",
+            "黄冈市","咸宁市","随州市","恩施自治州","仙桃市","潜江市","天门市","神农架林区"];
+        arr[3] = ["广西","南宁市","柳州市","桂林市","梧州市","北海市","防城港市","钦州市","贵港市",
+            "玉林市","百色市","贺州市","河池市","来宾市","崇左市"];
+        arr[4] = ["广东","广州市","韶关市","深圳市","珠海市","汕头市","佛山市","江门市","湛江市","茂名市",
+            "肇庆市","惠州市","梅州市","汕尾市","河源市","阳江市","清远市","东莞市","中山市","潮州市","揭阳市","云浮市"];
+
+        function toChange(province){
+            var sec2 = document.getElementById("sec2");
+            var ops = sec2.getElementsByTagName("option");
+            var op = ops[0].nextElementSibling;
+            while(op != null){
+                var oRemove = op.nextElementSibling;
+                sec2.removeChild(op);
+                op = oRemove;
+            }
+            for(var i = 0; i < arr.length; i++){
+                var citys = arr[i];
+                if(province == citys[0]){
+                    for(var j = 1; j < citys.length; j++){
+                        var text = document.createTextNode(citys[j]);
+                        var option = document.createElement("option");
+                        option.appendChild(text);
+                        sec2.appendChild(option);
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-    <select id="sec1">
-        <option>&gt;--请选择--&lt;</option>
-        <option value="北京">北京</option>
-        <option value="湖北">湖北</option>
-        <option value="广东">广东</option>
+    <select id="sec1" onchange="toChange(this.value)">
+        <option>&lt;--请选择--&gt;</option>
+        <option value="北京">北京市</option>
+        <option value="重庆">重庆市</option>
+        <option value="湖北">湖北省</option>
+        <option value="广西">广西省</option>
+        <option value="广东">广东省</option>
+    </select>
+
+    <select id="sec2">
+        <option>&lt;--请选择--&gt;</option>
     </select>
 </body>
+
 </html>
