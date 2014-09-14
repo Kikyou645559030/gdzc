@@ -17,31 +17,37 @@
         <button id="creatTable">生成表格</button>
 </body>
 <script type="text/javascript">
+
     document.getElementById("creatTable").onclick = function(){
-        var table = document.getElementsByTagName("table")[0];
-        if(table != null){
-            table.remove();
-        }
-//        var tabs = document.getElementsByTagName("table");
-//        for(var k = 0; k < tabs.length; k++){
-//            tabs[k].remove();
-//        }
         var rowNum = document.getElementById("row").value;
         var colNum = document.getElementById("col").value;
-        var tab = document.createElement("table");
-//        tab.setAttribute("cellPadding","0");
-//        tab.setAttribute("cellSpacing","0");
-        tab.cellPadding = 0;
-        tab.cellSpacing = 0;
-        for(var i = 1; i <= rowNum; i++){
-            var row = tab.insertRow();//没有参数时是在后面追加，有参数时创建在指定的位置之前
-            for(var j = 1; j <= colNum; j++){
-                var text = document.createTextNode(i + "行" + j + "列");
-                var col = row.insertCell();//没有参数时是在后面追加，有参数时创建在指定的位置之前
-                col.appendChild(text);
+        if(isNaN(rowNum) || isNaN(colNum) || rowNum=="" || colNum=="" || rowNum.indexOf(".") != -1 ||
+                colNum.indexOf(".") != -1 || rowNum ==0 || colNum == 0){
+            alert("请输入合法的整数，最小值为1！");
+        }else{
+            var table = document.getElementsByTagName("table")[0];
+            if(table != null){
+                table.remove();
             }
+    //        var tabs = document.getElementsByTagName("table");
+    //        for(var k = 0; k < tabs.length; k++){
+    //            tabs[k].remove();
+    //        }
+            var tab = document.createElement("table");
+    //        tab.setAttribute("cellPadding","0");
+    //        tab.setAttribute("cellSpacing","0");
+            tab.cellPadding = 0;
+            tab.cellSpacing = 0;
+            for(var i = 1; i <= rowNum; i++){
+                var row = tab.insertRow();//没有参数时是在后面追加，有参数时创建在指定的位置之前
+                for(var j = 1; j <= colNum; j++){
+                    var text = document.createTextNode(i + "行" + j + "列");
+                    var col = row.insertCell();//没有参数时是在后面追加，有参数时创建在指定的位置之前
+                    col.appendChild(text);
+                }
+            }
+            document.body.appendChild(tab);
         }
-        document.body.appendChild(tab);
     };
 </script>
 </html>

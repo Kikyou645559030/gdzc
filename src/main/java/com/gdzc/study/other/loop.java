@@ -4,6 +4,8 @@ import java.util.*;
 
 /**
  * Created by Liu_Zhichao on 14-5-11.
+ * break;跳出循环
+ * countinue;结束当前一次循环
  */
 public class loop {
     public static void main(String[] args){

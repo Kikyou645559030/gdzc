@@ -18,6 +18,7 @@
             for(var i = 0; i < cks.length; i++){
 //                cks[i].setAttribute("checked","true");
                 cks[i].checked = true;
+                document.getElementById("all").checked = true;
             }
         }
 
@@ -25,6 +26,7 @@
             for(var j = 0; j < cks.length; j++){
                 cks[j].checked = false;
 //                cks[j].removeAttribute("checked");
+                document.getElementById("all").checked = false;
             }
         }
 
@@ -36,18 +38,53 @@
                 }else{
                     cks[k].checked == true;
                 }*/
+                var ckds = document.getElementsByName("love");
+                var length = ckds.length;
+                var cou = 0;
+                for(var t = 0; t < length; t++){
+                    if(ckds[t].checked){
+                        cou++;
+                        if(length == cou){
+                            document.getElementById("all").checked = true;
+                        }
+                    }else{
+                        document.getElementById("all").checked = false;
+                        break;
+                    }
+                }
+            }
+        }
+
+        function chk(ck){
+            if(ck.checked){
+                var cks = document.getElementsByName("love");
+                var len = cks.length;
+                var count = 0;
+                    for(var p = 0; p < len; p++){
+                        if(cks[p].checked){
+                            count++;
+                            if(len == count){
+                                document.getElementById("all").checked = true;
+                            }
+                        }else{
+                            document.getElementById("all").checked = false;
+                            break;
+                        }
+                    }
+            }else{
+                document.getElementById("all").checked = false;
             }
         }
     </script>
 </head>
 <body>
-    <input type="checkbox" id="all" onclick="check(this)"/>
-    <input type="checkbox" name="love" />
-    <input type="checkbox" name="love" />
-    <input type="checkbox" name="love" />
-    <input type="checkbox" name="love" />
-    <input type="checkbox" name="love" />
-    <input type="checkbox" name="love" />
+    <input type="checkbox" id="all" onclick="check(this)"/>全选<br/>
+    <input type="checkbox" name="love" onclick="chk(this)" /><br/>
+    <input type="checkbox" name="love" onclick="chk(this)" /><br/>
+    <input type="checkbox" name="love" onclick="chk(this)" /><br/>
+    <input type="checkbox" name="love" onclick="chk(this)" /><br/>
+    <input type="checkbox" name="love" onclick="chk(this)" /><br/>
+    <input type="checkbox" name="love" onclick="chk(this)" /><br/>
     <button onclick="checkAll()">全选</button>
     <button onclick="notCheck()">全不选</button>
     <button onclick="opposite()">反选</button>

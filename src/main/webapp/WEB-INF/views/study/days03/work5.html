@@ -18,7 +18,7 @@
             "肇庆市","惠州市","梅州市","汕尾市","河源市","阳江市","清远市","东莞市","中山市","潮州市","揭阳市","云浮市"];
 
         function toChange(province){
-            var sec2 = document.getElementById("sec2");
+            var sec2 = document.getElementById("sec");
             var ops = sec2.getElementsByTagName("option");
             var op = ops[0].nextElementSibling;
             while(op != null){
@@ -38,10 +38,15 @@
                 }
             }
         }
+
+        //js增强for循环，取到的是下标
+        for(var k in arr[0]){
+            alert(arr[0][k]);
+        }
     </script>
 </head>
 <body>
-    <select id="sec1" onchange="toChange(this.value)">
+    <select onchange="toChange(this.value)">
         <option>&lt;--请选择--&gt;</option>
         <option value="北京">北京市</option>
         <option value="重庆">重庆市</option>
@@ -50,7 +55,7 @@
         <option value="广东">广东省</option>
     </select>
 
-    <select id="sec2">
+    <select id="sec">
         <option>&lt;--请选择--&gt;</option>
     </select>
 </body>
