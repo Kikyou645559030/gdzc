@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>第4天课堂练习控制表单提交事件</title>
+    <script type="text/javascript">
+        var form = document.forms[0];
+        //js控制多表单提交
+        function select(){
+            form.action = "";
+            form.method = "get";
+            form.submit();
+        }
+
+        function del(){
+            form.action = "";
+            form.method = "post";
+            form.submit();
+        }
+
+        //onsubmit()事件，在提交表单时触发的事件，可以做表单的验证，当返回true则提交成功，否则提交失败。
+        // 注意：方法里面有固定格式 return 方法名()
+        function check(){
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <form action="" method="post" onsubmit="return check()">
+        <table>
+            <tr>
+                <td><input type="text"/></td>
+                <td><input type="button" value="查询" onclick="select()"/></td>
+                <td><input type="button" value="删除" onclick="del()"/></td>
+            </tr>
+            <tr>
+                <td>编号</td>
+                <td>姓名</td>
+                <td>性别</td>
+            </tr>
+            <tr>
+                <td>001</td>
+                <td>张三</td>
+                <td>男</td>
+            </tr>
+            <tr>
+                <td>002</td>
+                <td>李四</td>
+                <td>女</td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

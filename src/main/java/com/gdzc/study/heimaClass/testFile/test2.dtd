@@ -1,0 +1,13 @@
+<!ELEMENT root (first+,second*)>
+<!ELEMENT first (one?|two+|three*)>
+<!ELEMENT second ((one|two|three)|one*)>
+<!ELEMENT one (#PCDATA)>
+<!ELEMENT two (#PCDATA)>
+<!ELEMENT three (#PCDATA)>
+<!ELEMENT four EMPTY>
+<!ATTLIST first
+        a ANY #REQUIRED<!--表示所有类型都可以-必填属性-->
+        b CDATA #IMPLIED<!--表示字符串类型-选填属性-->
+        id ID #REQUIRED<!--表示类型是ID-必填属性-->
+        c (aa|bb|cc) #IMPLIED<!--表示只能是规定的类型之一-选填属性-->
+        >
