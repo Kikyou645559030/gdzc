@@ -1,5 +1,11 @@
 package com.gdzc.study.heimaClass.Days04;
 
+import com.gdzc.study.heimaClass.util.StaticFinalParameter;
+import com.gdzc.study.heimaClass.util.XMLHandleForJAXP;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 /**
  * Created by Liu_Zhichao on 14-9-15.
  * XML--练习及总结--使用JAXP(sun公司提供的,不需要引入外部jar包)解析XML，缺点：不能很好的处理格式问题。
@@ -29,4 +35,20 @@ package com.gdzc.study.heimaClass.Days04;
  * CDATA区的写法：<![CDATA[文本内容]]>
  */
 public class XMLPractice {
+    public static void main(String[] args){
+        Document document = XMLHandleForJAXP.getDocument(StaticFinalParameter.filePathForXML1);
+        getElementName(document);
+    }
+
+    //递归获取所有Element元素的名称
+    public static void getElementName(Node node){
+        if (Node.ELEMENT_NODE == node.getNodeType()){
+            System.out.println(node.getNodeName());
+        }
+        NodeList nodeList = node.getChildNodes();
+        for (int i = 0; i < nodeList.getLength(); i++){
+            getElementName(nodeList.item(i));
+
+        }
+    }
 }

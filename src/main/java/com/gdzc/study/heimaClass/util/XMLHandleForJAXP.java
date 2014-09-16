@@ -16,11 +16,11 @@ import java.io.IOException;
 
 /**
  * Created by Liu_Zhichao on 14-9-15.
- * XML--工具类
+ * XML--工具类--JAXP
  * 1.提供解析XML的静态方法，返回Document
  * 2.提供回写Document到XML文件中的静态方法
  */
-public class XMLHandle {
+public class XMLHandleForJAXP {
 
     /**
      * 解析xml文件返回Document对象的静态方法

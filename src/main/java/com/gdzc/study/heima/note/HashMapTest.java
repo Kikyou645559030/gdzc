@@ -31,10 +31,10 @@ public class HashMapTest{
 
 /**
  * 第二种方式是使用Map.Entry来获取：
-     import java.util.HashMap;
-     import java.util.Iterator;
-     import java.util.Map;
-     import java.util.Set;
+     import java.utils.HashMap;
+     import java.utils.Iterator;
+     import java.utils.Map;
+     import java.utils.Set;
  */
 /*public class HashMapTest{
     public static void main(String[] args)

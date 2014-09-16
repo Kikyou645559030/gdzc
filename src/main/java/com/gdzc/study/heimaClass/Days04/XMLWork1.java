@@ -1,6 +1,6 @@
 package com.gdzc.study.heimaClass.Days04;
 
-import com.gdzc.study.heimaClass.util.XMLHandle;
+import com.gdzc.study.heimaClass.util.XMLHandleForJAXP;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -8,7 +8,7 @@ import org.w3c.dom.NodeList;
 
 /**
  * Created by Liu_Zhichao on 14-9-15.
- * XML练习
+ * XML练习--JAXP
  * 课后作业第一题：在指定的节点之前插入新节点listener
  * 课后作业第二题：获取标签的属性值
  */
@@ -23,7 +23,7 @@ public class XMLWork1 {
     //一个向xml文件中插入监听器的方法,第一个参数是xml文件的路径，第二个参数是插入的监听器的名字
     public static void insertElement(String filePath,String className){
         //通过XMLHandle工具类解析xml文件获得Document对象
-        Document document = XMLHandle.getDocument(filePath);
+        Document document = XMLHandleForJAXP.getDocument(filePath);
         //创建新的父结点
         Element newListener = document.createElement("listener");
         //创建新的子节点
@@ -39,13 +39,13 @@ public class XMLWork1 {
         //插入结点
         parentNode.insertBefore(newListener,oldListener);
         //调用writeXML()方法回写document文档到xml文件中去
-        XMLHandle.writeXML(document,filePath);
+        XMLHandleForJAXP.writeXML(document, filePath);
     }
 
     //一个获取xml文件元素属性的方法，第一个参数是xml文件的路径，第二个参数是需要获得的属性名称
     public static void getAttributeValue(String filePath ,String attribute){
         //拿到Document对象
-        Document document = XMLHandle.getDocument(filePath);
+        Document document = XMLHandleForJAXP.getDocument(filePath);
         //拿到第一个filter节点
         Node filter = document.getElementsByTagName("filter").item(0);
         //拿到所以的孩子节点

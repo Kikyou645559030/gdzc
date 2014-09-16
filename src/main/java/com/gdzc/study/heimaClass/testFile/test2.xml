@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <!--<!DOCTYPE root SYSTEM "src/main/java/com/gdzc/study/heimaClass/testFile/test2.dtd">-->
-<root>
-    <first>
-        <one>一</one>
-        <two>二</two>
-        <three>三</three>
-    </first>
-    <second>
-        <one>四</one>
-        <two>五</two>
-        <three>六</three>
-    </second>
+<!--<!DOCTYPE root [dtd的内容]>-->
+<root> 
+  <first> 
+    <one>一</one>
+    <two>二</two>
+    <three>三</three>
+  </first>  
+  <second> 
+    <one>四</one>  
+    <two>五</two>  
+    <three>六</three> 
+  </second>  
+  <second>
+    <one>七</one>  
+    <two>八</two>  
+    <three>九</three>  
+  </second>
 </root>
