@@ -20,7 +20,7 @@ public class DOM4JPractice {
         addElement(StaticFinalParameter.filePathForXML2);
         insertElement(StaticFinalParameter.filePathForXML2,2);
         replaceElement(StaticFinalParameter.filePathForXML2,1);
-        getElement(StaticFinalParameter.filePathForXML2,"");
+        getElement(StaticFinalParameter.filePathForXML2,"//second/one");
     }
 
     /**
@@ -32,8 +32,14 @@ public class DOM4JPractice {
         //通过自定义工具类来解析XML，返回document对象
         Document document = XMLHandleForDOM4J.parseToDocument(filePath);
         if (document != null){
-            Node node = document.selectSingleNode("");
+//            Node nd = document.selectSingleNode("//second/two[1]");
+            Node nd = document.selectSingleNode("//first/two");
+            System.out.println("SingleNodeName：" + nd.getName() + "SingleNodeText：" + nd.getText());
             List<Node> nodes = document.selectNodes(xPath);
+            for (Node node : nodes){
+                System.out.println("NodeName：" + node.getName() + "NodeAsXML：" +
+                        node.asXML() + "NodeText：" + node.getText());
+            }
         }
     }
 
