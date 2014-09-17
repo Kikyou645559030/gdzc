@@ -42,7 +42,7 @@ public class StudentController {
 //        removeAllStudent();//删除所有学生
 //        findStudentById("003");//根据学号查询学生
 //        findStudentsByName("张三");//根据姓名查询学生
-//        findAllStudent();//查询所有学生
+        findAllStudent();//查询所有学生
     }
 
     /**
