@@ -1,13 +1,11 @@
-package com.gdzc.study.heimaClass.Days05;
+package com.gdzc.study.heimaClass.days05;
 
 import com.gdzc.study.heimaClass.util.StaticFinalParameter;
 import com.gdzc.study.heimaClass.util.XMLFileStyle;
 import com.gdzc.study.heimaClass.util.XMLHandleForDOM4J;
-import org.dom4j.Document;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
-import org.dom4j.Node;
+import org.dom4j.*;
 
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -21,6 +19,55 @@ public class DOM4JPractice {
         insertElement(StaticFinalParameter.filePathForXML2,2);
         replaceElement(StaticFinalParameter.filePathForXML2,1);
         getElement(StaticFinalParameter.filePathForXML2,"//second/one");
+    }
+
+    /**
+     * 字符串和xml的document对象互相转换
+     * @param filePath
+     */
+    public static void stringToDocument(String filePath){
+        Document document = XMLHandleForDOM4J.parseToDocument(filePath);
+        if (document != null){
+            String xml = document.asXML();//将一个xml文件的document对象转换成字符串
+            try {
+                document = DocumentHelper.parseText(xml);//将一个字符串解析为document对象
+            } catch (DocumentException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
+     * 几种遍历获得元素和属性的方法
+     * @param filePath
+     */
+    public static void looping(String filePath){
+        Document document = XMLHandleForDOM4J.parseToDocument(filePath);
+        if (document != null){
+            Element root = document.getRootElement();
+            //遍历获得所有的元素
+            for (Iterator<Element> i = root.elementIterator();i.hasNext();){
+                Element element = i.next();
+            }
+
+            //遍历找到指定名称的所有元素
+            for (Iterator<Element> i = root.elementIterator("second");i.hasNext();){
+                Element element = i.next();
+            }
+
+            //遍历获得所有的节点属性
+            for (Iterator<Attribute> i = root.attributeIterator();i.hasNext();){
+                Attribute attribute = i.next();
+            }
+
+            //循环遍历获得所有的节点，并判断节点类型
+            for (int i = 0, size = root.nodeCount(); i < size; i++){
+                Node node = root.node(i);
+                if (node instanceof Element){
+                }else {
+                }
+            }
+        }
     }
 
     /**

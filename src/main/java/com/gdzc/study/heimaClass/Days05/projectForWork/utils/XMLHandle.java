@@ -1,5 +1,6 @@
-package com.gdzc.study.heimaClass.util;
+package com.gdzc.study.heimaClass.days05.projectForWork.utils;
 
+import com.gdzc.study.heimaClass.util.XMLFileStyle;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.OutputFormat;
@@ -15,7 +16,7 @@ import java.io.UnsupportedEncodingException;
  * Created by Liu_Zhichao on 14-9-16.
  * XML--工具类--DOM4J
  */
-public class XMLHandleForDOM4J {
+public class XMLHandle {
 
     /**
      * a
@@ -24,8 +25,8 @@ public class XMLHandleForDOM4J {
      */
     public static Document parseToDocument(String filePath){
         Document document = null;
-//        String postfix = filePath.substring(filePath.lastIndexOf('.'));//通过拿到最后一个点的下标来截取
-        String postfix = filePath.substring(filePath.length() - 4);//通过减去后缀长度来截取后缀名
+        String postfix = filePath.substring(filePath.lastIndexOf('.'));
+//        String postfix = filePath.substring(filePath.length() - 4);
         if (filePath != "" && filePath.length() > 0 && ".xml".equalsIgnoreCase(postfix)){
             SAXReader reader = new SAXReader();
             try {

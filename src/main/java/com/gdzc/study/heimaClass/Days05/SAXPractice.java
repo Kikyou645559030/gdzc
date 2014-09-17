@@ -1,4 +1,4 @@
-package com.gdzc.study.heimaClass.Days05;
+package com.gdzc.study.heimaClass.days05;
 
 import org.xml.sax.SAXException;
 

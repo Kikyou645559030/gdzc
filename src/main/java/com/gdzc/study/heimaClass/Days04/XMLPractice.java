@@ -1,4 +1,4 @@
-package com.gdzc.study.heimaClass.Days04;
+package com.gdzc.study.heimaClass.days04;
 
 import com.gdzc.study.heimaClass.util.StaticFinalParameter;
 import com.gdzc.study.heimaClass.util.XMLHandleForJAXP;
