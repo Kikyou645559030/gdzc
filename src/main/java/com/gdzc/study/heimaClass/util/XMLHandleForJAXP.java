@@ -22,6 +22,7 @@ import java.io.IOException;
  */
 public class XMLHandleForJAXP {
 
+    private XMLHandleForJAXP(){}
     /**
      * 解析xml文件返回Document对象的静态方法
      * @param filePath

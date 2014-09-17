@@ -18,8 +18,13 @@ import java.io.UnsupportedEncodingException;
 public class XMLHandle {
 
     /**
-     * @param filePath
-     * @return
+     * 类中全是静态方法，所以创建实例对象没有意义，为了程序的严谨，可以将构造方法私有化
+     */
+    private XMLHandle(){}
+
+    /**
+     * @param filePath 接受一个字符串的xml文件路径
+     * @return 会返回一个document对象
      */
     public static Document parseToDocument(String filePath){
         Document document = null;

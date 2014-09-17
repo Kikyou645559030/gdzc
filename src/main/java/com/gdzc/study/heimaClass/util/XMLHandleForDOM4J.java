@@ -17,6 +17,7 @@ import java.io.UnsupportedEncodingException;
  */
 public class XMLHandleForDOM4J {
 
+    private XMLHandleForDOM4J(){}
     /**
      * 解析xml
      * @param filePath

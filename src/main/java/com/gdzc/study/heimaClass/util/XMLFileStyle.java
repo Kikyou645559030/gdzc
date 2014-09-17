@@ -5,4 +5,5 @@ package com.gdzc.study.heimaClass.util;
  */
 public enum XMLFileStyle {
     COMMON,PRETTY,COMPACT;
+    private XMLFileStyle(){}
 }
