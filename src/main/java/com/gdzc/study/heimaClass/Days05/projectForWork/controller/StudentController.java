@@ -40,7 +40,7 @@ public class StudentController {
 //        removeStudentById("004");//删除学生
 //        removeStudents("001","003");//批量删除学生，可以输入多个学号
 //        removeAllStudent();//删除所有学生
-//        findStudentById("003");//根据学号查询学生
+        findStudentById("003");//根据学号查询学生
 //        findStudentsByName("张三");//根据姓名查询学生
         findAllStudent();//查询所有学生
     }
