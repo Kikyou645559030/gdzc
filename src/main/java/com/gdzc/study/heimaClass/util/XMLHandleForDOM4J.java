@@ -18,6 +18,7 @@ import java.io.UnsupportedEncodingException;
 public class XMLHandleForDOM4J {
 
     /**
+     * 解析xml
      * @param filePath
      * @return
      */
@@ -38,6 +39,13 @@ public class XMLHandleForDOM4J {
         return document;
     }
 
+    /**
+     * 回写的方法
+     * @param filePath
+     * @param document
+     * @param style
+     * @return
+     */
     public static boolean writeToXMLFile(String filePath,Document document,XMLFileStyle style){
         String postfix = filePath.substring(filePath.lastIndexOf('.'));
         if (filePath != "" && !filePath.isEmpty() && ".xml".equalsIgnoreCase(postfix)){
