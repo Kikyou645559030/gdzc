@@ -65,12 +65,12 @@ public class FileUtil {
                     } catch (IOException e) {
                         e.printStackTrace();
                         log.debug("FileUtil.saveUploadFile()中出现异常");
-                        log.debug("File file: " + file + "String path: " + path);
+                        log.debug("File file: " + file + "String PATH: " + path);
                     }
                 }
             }
         } else {
-            log.debug("File file: " + file + "String path: " + path);
+            log.debug("File file: " + file + "String PATH: " + path);
             log.debug("FileUtil.saveUploadFile()中出现异常");
         }
     }

@@ -18,7 +18,6 @@ import java.io.UnsupportedEncodingException;
 public class XMLHandleForDOM4J {
 
     /**
-     * a
      * @param filePath
      * @return
      */

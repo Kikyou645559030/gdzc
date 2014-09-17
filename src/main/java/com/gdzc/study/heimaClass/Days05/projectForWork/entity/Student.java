@@ -7,14 +7,22 @@ package com.gdzc.study.heimaClass.days05.projectForWork.entity;
 public class Student {
     private String id;//学号
     private String name;//姓名
-    private Double math;//数学成绩
+    private String math;//数学成绩
 
     public Student() {
     }
 
-    public Student(String id, String name, Double math) {
+    public Student(String id, String name, String math) {
         this.id = id;
         this.name = name;
+        this.math = math;
+    }
+
+    public String getMath() {
+        return math;
+    }
+
+    public void setMath(String math) {
         this.math = math;
     }
 
@@ -34,11 +42,12 @@ public class Student {
         this.name = name;
     }
 
-    public Double getMath() {
-        return math;
-    }
-
-    public void setMath(Double math) {
-        this.math = math;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", math='" + math + '\'' +
+                '}';
     }
 }

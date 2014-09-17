@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<students>
-    <student>
-        <id>001</id>
-        <name>张三</name>
-        <math>90</math>
-    </student>
+
+<students> 
+  <student> 
+    <id num="001">001</id>  
+    <name>张三</name>  
+    <math>69</math> 
+  </student>  
+  <student> 
+    <id num="002">002</id>  
+    <name>李四</name>  
+    <math>78</math> 
+  </student>  
+  <student> 
+    <id num="003">003</id>  
+    <name>王五</name>  
+    <math>83</math> 
+  </student>  
+  <student>
+    <id num="004">004</id>
+    <name>呵呵</name>
+    <math>90</math>
+  </student>
 </students>

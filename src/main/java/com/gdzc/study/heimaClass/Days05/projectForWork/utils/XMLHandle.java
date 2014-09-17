@@ -1,6 +1,5 @@
 package com.gdzc.study.heimaClass.days05.projectForWork.utils;
 
-import com.gdzc.study.heimaClass.util.XMLFileStyle;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.io.OutputFormat;
@@ -19,7 +18,6 @@ import java.io.UnsupportedEncodingException;
 public class XMLHandle {
 
     /**
-     * a
      * @param filePath
      * @return
      */
@@ -40,39 +38,15 @@ public class XMLHandle {
         return document;
     }
 
-    public static boolean writeToXMLFile(String filePath,Document document,XMLFileStyle style){
+    public static boolean writeToXMLFile(String filePath,Document document){
         String postfix = filePath.substring(filePath.lastIndexOf('.'));
         if (filePath != "" && !filePath.isEmpty() && ".xml".equalsIgnoreCase(postfix)){
-            OutputFormat format = null;
-            if (XMLFileStyle.PRETTY == style){
-                format = OutputFormat.createPrettyPrint();
-                writeFile(filePath,document,format);
-                return true;
-            }else if (XMLFileStyle.COMPACT == style){
-                format = OutputFormat.createCompactFormat();
-                writeFile(filePath,document,format);
-                return true;
-            }else {
-                writeFile(filePath,document);
-                return true;
-            }
+            OutputFormat format = OutputFormat.createPrettyPrint();
+            writeFile(filePath,document,format);
+            return true;
         }
         System.out.println("文件路径有误，请检查！");
         return false;
-    }
-
-    private static void writeFile(String filePath, Document document){
-        try {
-            XMLWriter writer = new XMLWriter(new FileOutputStream(filePath));
-            writer.write(document);
-            writer.close();
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private static void writeFile(String filePath, Document document, OutputFormat format){
