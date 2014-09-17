@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  * Created by Liu_Zhichao on 14-9-17.
- * 处理学生信息的dao
+ * 学生信息管理系统--处理学生信息的dao
  */
 public class StudentDao {
     private String path = Parameters.PATH;//存储数据的xml路径
@@ -96,21 +96,31 @@ public class StudentDao {
     public void insertStudent(Student student){
         Document document = XMLHandle.parseToDocument(path);
         if (document != null){
+            String studentId = student.getId();
             Element root = document.getRootElement();
-            Element stu = DocumentHelper.createElement(Parameters.STUDENT);
-            Element id = DocumentHelper.createElement(Parameters.ID);
-            id.addText(student.getId()).addAttribute(Parameters.NUM,student.getId());
-            Element name = DocumentHelper.createElement(Parameters.NAME);
-            name.addText(student.getName());
-            Element math = DocumentHelper.createElement(Parameters.MATH);
-            if (student.getMath() != null){
-                math.addText(student.getMath());
+            List<Element> students = root.elements();
+            List<String> ids = new ArrayList<String>();
+            for (Element element : students){
+                ids.add(element.element(Parameters.ID).getText());
             }
-            stu.add(id);
-            stu.add(name);
-            stu.add(math);
-            root.add(stu);
-            XMLHandle.writeToXMLFile(path,document);
+            if (ids.contains(studentId)){
+                System.out.println("学号为" + studentId + "的学生已经存在！");
+            }else {
+                Element stu = DocumentHelper.createElement(Parameters.STUDENT);
+                Element id = DocumentHelper.createElement(Parameters.ID);
+                id.addText(student.getId()).addAttribute(Parameters.NUM,student.getId());
+                Element name = DocumentHelper.createElement(Parameters.NAME);
+                name.addText(student.getName());
+                Element math = DocumentHelper.createElement(Parameters.MATH);
+                if (student.getMath() != null){
+                    math.addText(student.getMath());
+                }
+                stu.add(id);
+                stu.add(name);
+                stu.add(math);
+                root.add(stu);
+                XMLHandle.writeToXMLFile(path,document);
+            }
         }
     }
 

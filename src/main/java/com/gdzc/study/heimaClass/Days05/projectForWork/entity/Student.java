@@ -2,7 +2,7 @@ package com.gdzc.study.heimaClass.days05.projectForWork.entity;
 
 /**
  * Created by Liu_Zhichao on 14-9-17.
- * 学生实体类
+ * 学生信息管理系统--学生实体类
  */
 public class Student {
     private String id;//学号

@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Created by Liu_Zhichao on 14-9-17.
- * 管理学生信息的实现类
+ * 学生信息管理系统--管理学生信息的实现类
  */
 public class StudentManager implements StudentService{
     private StudentDao studentDao = new StudentDao();//处理数据的dao对象
@@ -21,6 +21,21 @@ public class StudentManager implements StudentService{
     @Override
     public void reviseStudent(Student student) {
         studentDao.updateStudent(student);
+    }
+
+    @Override
+    public Student findStudentById(String id) {
+        return studentDao.selectStudentById(id);
+    }
+
+    @Override
+    public List<Student> findStudentByName(String name) {
+        return studentDao.selectStudentsByName(name);
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return studentDao.selectAll();
     }
 
     @Override

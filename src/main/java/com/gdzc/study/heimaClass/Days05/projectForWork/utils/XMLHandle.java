@@ -13,7 +13,7 @@ import java.io.UnsupportedEncodingException;
 
 /**
  * Created by Liu_Zhichao on 14-9-16.
- * XML--工具类--DOM4J
+ * 学生信息管理系统--XML--工具类--DOM4J
  */
 public class XMLHandle {
 

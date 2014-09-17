@@ -2,7 +2,7 @@ package com.gdzc.study.heimaClass.days05.projectForWork.common;
 
 /**
  * Created by Liu_Zhichao on 14-9-17.
- * 常量类
+ * 学生信息管理系统--常量类
  */
 public class Parameters {
     public static final String PATH = "src/main/java/com/gdzc/study/heimaClass/days05/projectForWork/data/studentInfo.xml";

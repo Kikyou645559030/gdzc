@@ -16,9 +16,14 @@
     <name>王五</name>  
     <math>83</math> 
   </student>  
+  <student> 
+    <id num="004">004</id>  
+    <name>呵呵</name>  
+    <math>90</math> 
+  </student>  
   <student>
-    <id num="004">004</id>
-    <name>呵呵</name>
-    <math>90</math>
+    <id num="005">005</id>
+    <name>张三</name>
+    <math>98</math>
   </student>
 </students>
