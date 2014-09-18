@@ -11,7 +11,6 @@ import org.xml.sax.helpers.DefaultHandler;
 public class MyHandle extends DefaultHandler {
     Boolean flag = false;
 
-    @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         if ("one".equals(qName)){
             flag = true;
@@ -19,7 +18,6 @@ public class MyHandle extends DefaultHandler {
         }
     }
 
-    @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (flag){
             String content = new String(ch,start,length);
@@ -28,7 +26,6 @@ public class MyHandle extends DefaultHandler {
         }
     }
 
-    @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
     }
 }

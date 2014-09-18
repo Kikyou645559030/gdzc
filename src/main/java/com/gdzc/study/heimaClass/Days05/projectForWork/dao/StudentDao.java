@@ -118,7 +118,8 @@ public class StudentDao {
                 stu.add(id);
                 stu.add(name);
                 stu.add(math);
-                root.add(stu);
+                root.add(stu);//添加节点
+//                root.addElement("student");//创建节点并添加
                 XMLHandle.writeToXMLFile(path,document);
             }
         }

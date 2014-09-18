@@ -181,7 +181,6 @@ public class DOM4JPractice {
      * @param elementName
      */
     //没做非空处理
-    @Deprecated
     public static void removeElement(String filePath,String elementName){
         //通过自定义工具类来解析XML，返回document对象
         Document document = XMLHandleForDOM4J.parseToDocument(filePath);
