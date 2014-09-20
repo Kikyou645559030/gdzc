@@ -36,7 +36,7 @@ import org.w3c.dom.NodeList;
  */
 public class XMLPractice {
     public static void main(String[] args){
-        Document document = XMLHandleForJAXP.getDocument(StaticFinalParameter.filePathForXML1);
+        Document document = XMLHandleForJAXP.getDocument(StaticFinalParameter.FILE_PATH_FOR_XML1);
         getElementName(document);
     }
 

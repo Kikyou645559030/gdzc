@@ -31,7 +31,7 @@ class Cat{
 
     }
 
-    public static Cat getCat(){
+    public static synchronized Cat getCat(){
         if (cat == null){
             cat = new Cat();
         }

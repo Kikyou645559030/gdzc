@@ -14,11 +14,11 @@ import java.util.List;
  */
 public class DOM4JPractice {
     public static void main(String[] args) {
-//        removeElement(StaticFinalParameter.filePathForXML2,"three");
-        addElement(StaticFinalParameter.filePathForXML2);
-        insertElement(StaticFinalParameter.filePathForXML2,2);
-        replaceElement(StaticFinalParameter.filePathForXML2,1);
-        getElement(StaticFinalParameter.filePathForXML2,"//second/one");
+//        removeElement(StaticFinalParameter.FILE_PATH_FOR_XML2,"three");
+        addElement(StaticFinalParameter.FILE_PATH_FOR_XML2);
+        insertElement(StaticFinalParameter.FILE_PATH_FOR_XML2,2);
+        replaceElement(StaticFinalParameter.FILE_PATH_FOR_XML2,1);
+        getElement(StaticFinalParameter.FILE_PATH_FOR_XML2,"//second/one");
     }
 
     /**
