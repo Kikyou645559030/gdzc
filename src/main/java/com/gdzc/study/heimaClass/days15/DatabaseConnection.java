@@ -24,6 +24,12 @@ public class DatabaseConnection {
 		    */
             //加载
             Class.forName("com.mysql.jdbc.Driver");
+
+            //1 注册驱动(Oracle数据库连接)----------------
+//		Class.forName("oracle.jdbc.driver.OracleDriver");
+            //2获得连接--------------------------------------------
+//		Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:ORACLE", "scott", "lzc");
+
             /*
 		 * 获得连接，相当于需要cmd登录,通过URL连接指定的数据库，通过user和password进行登录
 		 * 		必须获得连接才可以进行sql语句相应操作
