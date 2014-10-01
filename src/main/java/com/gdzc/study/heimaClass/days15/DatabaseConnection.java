@@ -9,7 +9,7 @@ import java.sql.*;
 public class DatabaseConnection {
 
     /**
-     * 普通查询
+     * 普通查询，会有sql注入的风险
      */
     public void mysqlConnection(){
         try {
@@ -139,6 +139,8 @@ public class DatabaseConnection {
             st.addBatch("不同的sql语句");
             //批量执行sql语句
             int[] results = st.executeBatch();
+            //清空缓存
+            st.clearBatch();
             st.close();
             conn.close();
         } catch (SQLException e) {
