@@ -32,7 +32,7 @@ class Employee{
 	
 	private static Employee employee = null;
 
-//    private static Employee employee = new Employee();饿汉式单例设计模式
+//    private static final Employee employee = new Employee();饿汉式单例设计模式
 
 	//构造方法私有化，只能在本类中实例化对象
 	//不能在其他类中实例化该类，只能通过调用getEmployee()方法来获取对象，这就是单例设计模式

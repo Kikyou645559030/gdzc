@@ -2,6 +2,10 @@ package com.gdzc.study.heima.baseVideo.Thread;
 
 /**
  * -多线程-线程同步-银行金库存钱
+ * -同步的方式
+ * -1.同步代码块，锁对象是在synchronized后面的小括号中
+ * ----synchronized(锁对象){...代码块...}
+ * -2.同步函数，在方法前加synchronized修饰符，锁对象是this
  * Created by Liu_Zhichao on 14-10-4.
  */
 public class BankDemo {
