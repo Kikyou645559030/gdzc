@@ -14,10 +14,10 @@ public class EnumTest1 {
         WeekDay1 w1 = WeekDay1.FRI;
         System.out.println(w1);
         System.out.println(w1.name());
-        System.out.println(w1.ordinal());
+        System.out.println(w1.ordinal());//当前排行第几,从0开始
         System.out.println(w1.toString());
-        System.out.println(WeekDay1.valueOf("SUN"));
-        System.out.println(WeekDay1.values().length);
+        System.out.println(WeekDay1.valueOf("SUN"));//将一个字符串转换为枚举对象
+        System.out.println(WeekDay1.values().length);//枚举元素个数
 
         WeekDay2 w2 = WeekDay2.FRI;
     }
@@ -29,7 +29,7 @@ public class EnumTest1 {
 
     //带构造方法以及有参构造方法的枚举
     public enum WeekDay2{
-        SUN(0),MON,TUE,WEN,THI,FRI,SAT;
+        SUN(0),MON(),TUE,WEN,THI,FRI,SAT;
 
         WeekDay2(){
             System.out.println("first");

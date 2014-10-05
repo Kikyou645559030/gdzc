@@ -13,7 +13,7 @@ public class SingleTest {
 单例--饿汉式
  */
 class Dog{
-    private static Dog dog = new Dog();
+    private static final Dog dog = new Dog();
     private Dog(){
     }
 
