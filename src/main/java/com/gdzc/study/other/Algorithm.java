@@ -1,6 +1,7 @@
 package com.gdzc.study.other;
 
 /**
+ * 算法
  * Created by Liu_Zhichao on 14-6-9.
  */
 public class Algorithm {
